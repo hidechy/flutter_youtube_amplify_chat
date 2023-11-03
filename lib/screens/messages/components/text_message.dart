@@ -1,7 +1,7 @@
-import 'package:chat/models/ChatMessage.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../../models/chat_message.dart';
 
 class TextMessage extends StatelessWidget {
   const TextMessage({
@@ -28,9 +28,7 @@ class TextMessage extends StatelessWidget {
       child: Text(
         message!.text,
         style: TextStyle(
-          color: message!.isSender
-              ? Colors.white
-              : Theme.of(context).textTheme.bodyLarge!.color,
+          color: message!.isSender ? Colors.white : Theme.of(context).textTheme.bodyLarge!.color,
         ),
       ),
     );

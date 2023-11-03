@@ -1,7 +1,7 @@
-import 'package:chat/models/ChatMessage.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../../models/chat_message.dart';
 import 'audio_message.dart';
 import 'text_message.dart';
 import 'video_message.dart';
@@ -24,6 +24,7 @@ class Message extends StatelessWidget {
           return AudioMessage(message: message);
         case ChatMessageType.video:
           return const VideoMessage();
+        // ignore: no_default_cases
         default:
           return const SizedBox();
       }
@@ -32,13 +33,12 @@ class Message extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: kDefaultPadding),
       child: Row(
-        mainAxisAlignment:
-            message.isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
+        mainAxisAlignment: message.isSender ? MainAxisAlignment.end : MainAxisAlignment.start,
         children: [
           if (!message.isSender) ...[
             const CircleAvatar(
               radius: 12,
-              backgroundImage: AssetImage("assets/images/user_2.png"),
+              backgroundImage: AssetImage('assets/images/user_2.png'),
             ),
             const SizedBox(width: kDefaultPadding / 2),
           ],
@@ -51,19 +51,20 @@ class Message extends StatelessWidget {
 }
 
 class MessageStatusDot extends StatelessWidget {
+  const MessageStatusDot({Key? key, this.status}) : super(key: key);
   final MessageStatus? status;
 
-  const MessageStatusDot({Key? key, this.status}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Color dotColor(MessageStatus status) {
       switch (status) {
-        case MessageStatus.not_sent:
+        case MessageStatus.notSent:
           return kErrorColor;
-        case MessageStatus.not_view:
+        case MessageStatus.notView:
           return Theme.of(context).textTheme.bodyLarge!.color!.withOpacity(0.1);
         case MessageStatus.viewed:
           return kPrimaryColor;
+        // ignore: no_default_cases
         default:
           return Colors.transparent;
       }
@@ -78,7 +79,7 @@ class MessageStatusDot extends StatelessWidget {
         shape: BoxShape.circle,
       ),
       child: Icon(
-        status == MessageStatus.not_sent ? Icons.close : Icons.done,
+        status == MessageStatus.notSent ? Icons.close : Icons.done,
         size: 8,
         color: Theme.of(context).scaffoldBackgroundColor,
       ),

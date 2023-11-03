@@ -1,17 +1,19 @@
-import 'package:chat/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
 import 'components/body.dart';
 
 class ChatsScreen extends StatefulWidget {
   const ChatsScreen({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ChatsScreenState createState() => _ChatsScreenState();
 }
 
 class _ChatsScreenState extends State<ChatsScreen> {
   int _selectedIndex = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,15 +41,15 @@ class _ChatsScreenState extends State<ChatsScreen> {
         });
       },
       items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.messenger), label: "Chats"),
-        BottomNavigationBarItem(icon: Icon(Icons.people), label: "People"),
-        BottomNavigationBarItem(icon: Icon(Icons.call), label: "Calls"),
+        BottomNavigationBarItem(icon: Icon(Icons.messenger), label: 'Chats'),
+        BottomNavigationBarItem(icon: Icon(Icons.people), label: 'People'),
+        BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Calls'),
         BottomNavigationBarItem(
           icon: CircleAvatar(
             radius: 14,
-            backgroundImage: AssetImage("assets/images/user_2.png"),
+            backgroundImage: AssetImage('assets/images/user_2.png'),
           ),
-          label: "Profile",
+          label: 'Profile',
         ),
       ],
     );
@@ -57,7 +59,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
     return AppBar(
       backgroundColor: kPrimaryColor,
       automaticallyImplyLeading: false,
-      title: const Text("Chats"),
+      title: const Text('Chats'),
       actions: [
         IconButton(
           icon: const Icon(Icons.search),

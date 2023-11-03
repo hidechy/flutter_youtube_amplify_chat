@@ -42,37 +42,25 @@ class ChatInputField extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.sentiment_satisfied_alt_outlined,
-                      color: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .color!
-                          .withOpacity(0.64),
+                      color: Theme.of(context).textTheme.bodyLarge!.color!.withOpacity(0.64),
                     ),
                     const SizedBox(width: kDefaultPadding / 4),
                     const Expanded(
                       child: TextField(
                         decoration: InputDecoration(
-                          hintText: "Type message",
+                          hintText: 'Type message',
                           border: InputBorder.none,
                         ),
                       ),
                     ),
                     Icon(
                       Icons.attach_file,
-                      color: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .color!
-                          .withOpacity(0.64),
+                      color: Theme.of(context).textTheme.bodyLarge!.color!.withOpacity(0.64),
                     ),
                     const SizedBox(width: kDefaultPadding / 4),
                     Icon(
                       Icons.camera_alt_outlined,
-                      color: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .color!
-                          .withOpacity(0.64),
+                      color: Theme.of(context).textTheme.bodyLarge!.color!.withOpacity(0.64),
                     ),
                   ],
                 ),

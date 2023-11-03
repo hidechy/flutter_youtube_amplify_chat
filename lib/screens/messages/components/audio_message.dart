@@ -1,12 +1,12 @@
-import 'package:chat/models/ChatMessage.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../../models/chat_message.dart';
 
 class AudioMessage extends StatelessWidget {
+  const AudioMessage({Key? key, this.message}) : super(key: key);
   final ChatMessage? message;
 
-  const AudioMessage({Key? key, this.message}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,8 +27,7 @@ class AudioMessage extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
               child: Stack(
                 clipBehavior: Clip.none,
                 alignment: Alignment.center,
@@ -36,9 +35,7 @@ class AudioMessage extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     height: 2,
-                    color: message!.isSender
-                        ? Colors.white
-                        : kPrimaryColor.withOpacity(0.4),
+                    color: message!.isSender ? Colors.white : kPrimaryColor.withOpacity(0.4),
                   ),
                   Positioned(
                     left: 0,
@@ -56,9 +53,8 @@ class AudioMessage extends StatelessWidget {
             ),
           ),
           Text(
-            "0.37",
-            style: TextStyle(
-                fontSize: 12, color: message!.isSender ? Colors.white : null),
+            '0.37',
+            style: TextStyle(fontSize: 12, color: message!.isSender ? Colors.white : null),
           ),
         ],
       ),
